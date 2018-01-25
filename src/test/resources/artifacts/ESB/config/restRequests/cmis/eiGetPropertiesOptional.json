@@ -1,0 +1,8 @@
+{
+  "cmisUsername": "%s(username)",
+  "cmisPassword": "%s(password)",
+  "cmisInstanceUrl": "%s(instanceUrl)",
+  "cmisSelector": "%s(selectorForProperties)",
+  "cmisSuccinct": "%s(succinct)",
+  "cmisFilter": "%s(filter)"
+}

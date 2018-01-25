@@ -1,0 +1,5 @@
+{
+  "cmisUsername": "%s(username)",
+  "cmisPassword": "%s(password)",
+  "cmisInstanceUrl": "%s(instanceUrl)"
+}

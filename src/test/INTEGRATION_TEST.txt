@@ -1,0 +1,41 @@
+Product: Integration tests for WSO2 EI CMIS connector
+
+Pre-requisites:
+
+ - Maven 3.x
+ - Java 1.8
+ - The org.wso2.esb.integration.integration-base project is required.
+   The test suite has been configured to download this project automatically.
+   If the automatic download fails, download the following project and
+   compile it using the mvn clean install command to update your local repository:
+   https://github.com/wso2-extensions/esb-connector-integrationbase
+
+Tested Platform:
+ - UBUNTU 16.04
+ - WSO2 EI 6.1.1
+
+Steps to follow in setting integration test.
+
+ 1. Download WSO2 EI 6.1.1 from official website.
+
+ 2. To test CMIS with Alfresco Server
+    i.      Go to https://www.alfresco.com/cmis
+    ii.     Go to "Download Alfresco with CMIS 1.1" and click on Linux
+    iii.    Install Alfresco Server by follow the steps mention in the below site
+            http://docs.alfresco.com/community/tasks/simpleinstall-community-lin.html
+
+ 3. Start Alfresco Server
+
+ 4. Update the CMIS properties file at location "{Connector_Home}/src/test/resources/artifacts/ESB/connector/config" as below.
+	
+	i)      username                        -   Username of the user used to log in to CMIS.
+	ii) 	password                        -   Password of the user used to log in to CMIS.
+	iii)	instanceUrl                     -   URL of the CMIS instance.
+	iv)     selectorForAllowableActions     -   Name of the CMIS selector use for allowable actions.
+	v)      selectorForProperties           -   Name of the CMIS selector use for properties.
+	vi)     succinct                        -   Whether the property presentation must be succinct or not set
+	vii)    filter                          -   Name of the filter is a list of property query names
+                                                which allows the caller to specify a subset of properties for objects.
+
+ 5. Navigate to "{EI_Connector_Home}/" and run the following command.
+	  $ mvn clean install -Dskip-tests=false

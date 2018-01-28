@@ -148,21 +148,18 @@
                         <password>admin</password>
                     </user>
                 </admin>
-
             </tenant>
-
         </tenants>
     </userManagement>
     <!--
    This section will initiate the initial deployment of the platform required by
    the test suites.
--->
+    -->
     <platform>
         <!--
         cluster instance details to be used to platform test execution
         -->
         <productGroup name="ESB" clusteringEnabled="false" default="true">
-
             <instance name="lbw001" type="lb_worker_manager" nonBlockingTransportEnabled="true">
                 <hosts>
                     <host type="worker">esb.wso2con.com</host>
@@ -173,7 +170,6 @@
                     <port type="nhttp">8480</port>
                 </ports>
                 <properties>
-
                 </properties>
             </instance>
             <instance name="esbm001" type="manager" nonBlockingTransportEnabled="true">
@@ -189,7 +185,6 @@
                 <properties>
                 </properties>
             </instance>
-
             <instance name="esbs001" type="standalone" nonBlockingTransportEnabled="true">
                 <hosts>
                     <host type="default">localhost</host>
@@ -201,7 +196,6 @@
                     <port type="nhttp">8480</port>
                 </ports>
                 <properties>
-
                 </properties>
             </instance>
             <instance name="esbw001" type="worker" nonBlockingTransportEnabled="true">
@@ -219,7 +213,6 @@
             </instance>
         </productGroup>
     </platform>
-
     <listenerExtensions>
         <!---->
         <!--<className>org.wso2.carbon.automation.extensions.servers.carbonserver.CarbonServerExtension</className>-->
@@ -239,28 +232,21 @@
                 <!--</class>-->
             </extentionClasses>
         </platformExecutionManager>
-
-
         <PlatformSuiteManager>
             <extentionClasses>
             </extentionClasses>
         </PlatformSuiteManager>
-
         <PlatformAnnotationTransferManager>
             <extentionClasses>
             </extentionClasses>
         </PlatformAnnotationTransferManager>
-
         <PlatformTestManager>
             <extentionClasses>
-
             </extentionClasses>
         </PlatformTestManager>
-
         <PlatformReportManager>
             <extentionClasses>
             </extentionClasses>
         </PlatformReportManager>
-
     </listenerExtensions>
 </automation>

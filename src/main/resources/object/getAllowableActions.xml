@@ -17,15 +17,13 @@
  ~  under the License.
 -->
 <template name="getAllowableActions" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="cmisSelector" description="Name of the CMIS selector"/>
     <sequence>
-        <property name="uri.var.cmisSelector" expression="$func:cmisSelector"/>
         <filter source="$ctx:cmisBlockingInvocation" regex="true">
             <then>
                 <call blocking="true">
                     <endpoint>
                         <http method="GET"
-                              uri-template="{uri.var.cmisInstanceUrl}?cmisSelector={+uri.var.cmisSelector}"/>
+                              uri-template="{uri.var.cmisInstanceUrl}?cmisSelector=allowableActions"/>
                     </endpoint>
                 </call>
             </then>
@@ -33,7 +31,7 @@
                 <call>
                     <endpoint>
                         <http method="GET"
-                              uri-template="{uri.var.cmisInstanceUrl}?cmisSelector={+uri.var.cmisSelector}"/>
+                              uri-template="{uri.var.cmisInstanceUrl}?cmisSelector=allowableActions"/>
                     </endpoint>
                 </call>
             </else>

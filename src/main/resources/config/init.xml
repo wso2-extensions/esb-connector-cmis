@@ -20,7 +20,8 @@
     <parameter name="cmisUsername" description="Username to log in the Alfresco server"/>
     <parameter name="cmisPassword" description="Password to log in the Alfresco server"/>
     <parameter name="cmisInstanceUrl" description="URL of the Alfresco CMIS instance"/>
-    <parameter name="cmisBlockingInvocation" description="Set to true to perform the blocking invocations to CMIS"/>
+    <parameter name="cmisBlockingInvocation" description="If it is true the same thread will serve the response otherwise
+                                                          another thread will serve the response"/>
     <sequence>
         <property name="cmisUsername" expression="$func:cmisUsername"/>
         <property name="cmisPassword" expression="$func:cmisPassword"/>

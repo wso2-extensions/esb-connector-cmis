@@ -65,25 +65,12 @@ public class CMISConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         eiRequestHeadersMap.put("Action", "urn:getAllowableActions");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap,
                 "eiGetAllowableActionsMandatory.json");
-        String apiEndPoint = connectorProperties.getProperty("instanceUrl") + "?cmisselector=" + connectorProperties
-                .getProperty("selectorForAllowableActions");
+        String apiEndPoint = connectorProperties.getProperty("instanceUrl") + "?cmisselector=allowableActions";
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200);
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200);
         Assert.assertEquals(eiRestResponse.getBody().get("canDeleteObject"),
                 apiRestResponse.getBody().get("canDeleteObject"));
-    }
-
-    /**
-     * Negative test case for getAllowableActions method with Negative parameters.
-     */
-    @Test(groups = { "wso2.ei" },
-          description = "cmis {getAllowableActions} integration test with negative parameters.")
-    public void testGetAllowableActionsWithNegativeParameters() throws IOException, JSONException {
-        eiRequestHeadersMap.put("Action", "urn:getAllowableActions");
-        RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap,
-                "eiGetAllowableActionsNegative.json");
-        Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 405);
     }
 
     /**
@@ -95,25 +82,12 @@ public class CMISConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         eiRequestHeadersMap.put("Action", "urn:getProperties");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap,
                 "eiGetPropertiesMandatory.json");
-        String apiEndPoint = connectorProperties.getProperty("instanceUrl") + "?cmisselector=" + connectorProperties
-                .getProperty("selectorForProperties");
+        String apiEndPoint = connectorProperties.getProperty("instanceUrl") + "?cmisselector=properties";
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200);
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200);
         Assert.assertEquals(eiRestResponse.getBody().getJSONObject("cmis:objectId").get("value"),
                 apiRestResponse.getBody().getJSONObject("cmis:objectId").get("value"));
-    }
-
-    /**
-     * Negative test case for getProperties method with Negative parameters.
-     */
-    @Test(groups = { "wso2.ei" },
-          description = "cmis {getProperties} integration test with negative parameters.")
-    public void testGetPropertiesWithNegativeParameters() throws IOException, JSONException {
-        eiRequestHeadersMap.put("Action", "urn:getProperties");
-        RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap,
-                "eiGetPropertiesNegative.json");
-        Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 405);
     }
 
     /**
@@ -125,9 +99,8 @@ public class CMISConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         eiRequestHeadersMap.put("Action", "urn:getProperties");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap,
                 "eiGetPropertiesOptional.json");
-        String apiEndPoint = connectorProperties.getProperty("instanceUrl") + "?cmisselector=" + connectorProperties
-                .getProperty("selectorForProperties") + "&succinct=" + connectorProperties.getProperty("succinct")
-                + "&filter=" + connectorProperties.getProperty("filter");
+        String apiEndPoint = connectorProperties.getProperty("instanceUrl") + "?cmisselector=properties" + "&succinct="
+                + connectorProperties.getProperty("succinct") + "&filter=" + connectorProperties.getProperty("filter");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200);
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200);

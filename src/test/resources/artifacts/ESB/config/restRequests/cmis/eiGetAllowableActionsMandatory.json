@@ -1,6 +1,5 @@
 {
   "cmisUsername": "%s(username)",
   "cmisPassword": "%s(password)",
-  "cmisInstanceUrl": "%s(instanceUrl)",
-  "cmisSelector": "%s(selectorForAllowableActions)"
+  "cmisInstanceUrl": "%s(instanceUrl)"
 }

@@ -17,12 +17,10 @@
  ~  under the License.
 -->
 <template name="getProperties" xmlns="http://ws.apache.org/ns/synapse">
-    <parameter name="cmisSelector" description="Name of the CMIS selector"/>
     <parameter name="cmisSuccinct" description="Whether the property presentation must be succinct or not set"/>
     <parameter name="cmisFilter" description="Name of the filter is a list of property query names
                                               which allows the caller to specify a subset of properties for objects"/>
     <sequence>
-        <property name="uri.var.cmisSelector" expression="$func:cmisSelector"/>
         <property name="uri.var.cmisSuccinct" expression="$func:cmisSuccinct"/>
         <property name="uri.var.cmisFilter" expression="$func:cmisFilter"/>
         <script language="js">
@@ -47,7 +45,7 @@
                 <call blocking="true">
                     <endpoint>
                         <http method="GET"
-                              uri-template="{uri.var.cmisInstanceUrl}?cmisSelector={+uri.var.cmisSelector}{+uri.var.urlQuery}"/>
+                              uri-template="{uri.var.cmisInstanceUrl}?cmisSelector=properties{+uri.var.urlQuery}"/>
                     </endpoint>
                 </call>
             </then>
@@ -55,7 +53,7 @@
                 <call>
                     <endpoint>
                         <http method="GET"
-                              uri-template="{uri.var.cmisInstanceUrl}?cmisSelector={+uri.var.cmisSelector}{+uri.var.urlQuery}"/>
+                              uri-template="{uri.var.cmisInstanceUrl}?cmisSelector=properties{+uri.var.urlQuery}"/>
                     </endpoint>
                 </call>
             </else>

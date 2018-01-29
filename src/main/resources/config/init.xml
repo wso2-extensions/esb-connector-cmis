@@ -20,14 +20,15 @@
     <parameter name="cmisUsername" description="Username to log in the Alfresco server"/>
     <parameter name="cmisPassword" description="Password to log in the Alfresco server"/>
     <parameter name="cmisInstanceUrl" description="URL of the Alfresco CMIS instance"/>
-    <parameter name="cmisBlockingInvocation" description="If it is true the same thread will serve the response otherwise
-                                                          another thread will serve the response"/>
+    <parameter name="cmisBlockingInvocation" description="If it is true the same thread will serve the response
+                                                          otherwise another thread will serve the response"/>
     <sequence>
         <property name="cmisUsername" expression="$func:cmisUsername"/>
         <property name="cmisPassword" expression="$func:cmisPassword"/>
         <property name="uri.var.cmisInstanceUrl" expression="$func:cmisInstanceUrl"/>
         <property name="cmisBlockingInvocation" expression="$func:cmisBlockingInvocation"/>
-        <property name="cmisBase64Encode" expression="base64Encode(fn:concat($ctx:cmisUsername,':',$ctx:cmisPassword))"/>
+        <property name="cmisBase64Encode"
+                  expression="base64Encode(fn:concat($ctx:cmisUsername,':',$ctx:cmisPassword))"/>
         <property name="Authorization" expression="fn:concat('Basic ',$ctx:cmisBase64Encode)" scope="transport"/>
     </sequence>
 </template>

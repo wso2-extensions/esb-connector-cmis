@@ -38,7 +38,7 @@ CMIS supports basic authentication with username and password. The Authorization
 * cmisUsername: The username of the CMIS account.
 * cmisPassword: The password of the CMIS account.
 * cmisInstanceUrl: URL of the Alfresco CMIS instance.
-* cmisBlockingInvocation: This is a boolean type property. Set this to true if you want the connector to perform blocking invocations to CMIS.
+* cmisBlockingInvocation: This is a boolean type property. If it is true the same thread will serve the response otherwise another thread will serve the response.
 
 Now that you have connected to CMIS, use the information in the following topics to perform various operations with the connector:
 

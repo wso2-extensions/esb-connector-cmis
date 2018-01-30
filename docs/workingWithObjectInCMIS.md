@@ -20,13 +20,8 @@ The getAllowableActions operation retrieves allowable actions in CMIS.
 
 **getAllowableActions**
 ```xml
-<cmis.getAllowableActions>
-    <cmisSelector>{$ctx:cmisSelector}</cmisSelector>
-</cmis.getAllowableActions>
+<cmis.getAllowableActions/>
 ```
-
-**Properties**
-* cmisSelector: Name of the CMIS selector.
 
 **Sample request**
 Following is a sample REST request that can be handled by the getAllowableActions operation.
@@ -35,8 +30,7 @@ Following is a sample REST request that can be handled by the getAllowableAction
 {
   "cmisUsername": "%s(username)",
   "cmisPassword": "%s(password)",
-  "cmisInstanceUrl": "%s(instanceUrl)",
-  "cmisSelector": "%s(cmisSelectorForAllowableActions)"
+  "cmisInstanceUrl": "%s(instanceUrl)"
 }
 ```
 
@@ -50,14 +44,12 @@ The getProperties operation retrieves properties details, based on the criteria 
 **getProperties**
 ```xml
 <cmis.getProperties>
-    <cmisSelector>{$ctx:cmisSelector}</cmisSelector>
     <cmisSuccinct>{$ctx:cmisSuccinct}</cmisSuccinct>
     <cmisFilter>{$ctx:cmisFilter}</cmisFilter>
 </cmis.getProperties>
 ```
 
 **Properties**
-* cmisSelector: Name of the CMIS selector.
 * cmisSuccinct: Whether the property presentation must be succinct or not set.
 * cmisFilter: Name of the filter is a list of property query names which allows the caller to specify a subset of properties for objects.
 
@@ -69,7 +61,6 @@ Following is a sample REST request that can be handled by the getProperties oper
   "cmisUsername": "%s(username)",
   "cmisPassword": "%s(password)",
   "cmisInstanceUrl": "%s(instanceUrl)",
-  "cmisSelector": "%s(cmisSelectorForProperties)",
   "cmisSuccinct": "%s(cmisSuccinct)",
   "cmisFilter": "%s(cmisFilter)"
 }
@@ -96,16 +87,13 @@ Following is a sample proxy service that illustrates how to connect to CMIS with
          <property expression="json-eval($.cmisUsername)" name="cmisUsername"/>
          <property expression="json-eval($.cmisPassword)" name="cmisPassword"/>
          <property expression="json-eval($.cmisInstanceUrl)" name="cmisInstanceUrl"/>
-         <property expression="json-eval($.cmisSelector)" name="cmisSelector"/>
          <cmis.init>
             <cmisUsername>{$ctx:cmisUsername}</cmisUsername>
             <cmisPassword>{$ctx:cmisPassword}</cmisPassword>
             <cmisInstanceUrl>{$ctx:cmisInstanceUrl}</cmisInstanceUrl>
             <cmisBlockingInvocation>false</cmisBlockingInvocation>
          </cmis.init>
-         <cmis.getAllowableActions>
-            <cmisSelector>{$ctx:cmisSelector}</cmisSelector>
-         </cmis.getAllowableActions>
+         <cmis.getAllowableActions/>
          <respond/>
       </inSequence>
       <outSequence>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~  Copyright (c) 2018, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+<template name="getProperties" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="cmisSuccinct" description="Whether the property presentation must be succinct or not set"/>
+    <parameter name="cmisFilter" description="Name of the filter is a list of property query names
+                                              which allows the caller to specify a subset of properties for objects"/>
+    <sequence>
+        <property name="uri.var.cmisSuccinct" expression="$func:cmisSuccinct"/>
+        <property name="uri.var.cmisFilter" expression="$func:cmisFilter"/>
+        <script language="js">
+            <![CDATA[
+                //url parameter variables
+                var cmisSuccinct = mc.getProperty("cmisSuccinct");
+                var cmisFilter = mc.getProperty("cmisFilter");
+                //url parameter processing start
+                var urlQuery = '';
+                if (cmisSuccinct != "" && cmisSuccinct != null) {
+                    urlQuery = urlQuery.concat('&succinct=').concat(cmisSuccinct);
+                }
+                if (cmisFilter != "" && cmisFilter != null) {
+                    urlQuery = urlQuery.concat('&filter=').concat(cmisFilter);
+                }
+                mc.setProperty('uri.var.urlQuery', urlQuery);
+                //url parameter processing end
+            ]]>
+        </script>
+        <filter source="$ctx:cmisBlockingInvocation" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="GET"
+                              uri-template="{uri.var.cmisInstanceUrl}?cmisSelector=properties{+uri.var.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="GET"
+                              uri-template="{uri.var.cmisInstanceUrl}?cmisSelector=properties{+uri.var.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
+    </sequence>
+</template>

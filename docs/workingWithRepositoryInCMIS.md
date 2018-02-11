@@ -1,21 +1,21 @@
-# Working with Repository in CMIS
+# Working with Repositories in CMIS
 
-[[  Overview ]](#overview)  [[ Operation details ]](#operation-details)  [[  Sample configuration  ]](#sample-configuration)
+[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
 
 ### Overview 
-The following operation allows you to work with the CMIS repository. Click the operation name to see details on how to use it.
+The following operation allows you to work with CMIS repositories. Click the operation name to see details on how to use it.
 
-For a sample proxy service that illustrates how to work with the CMIS repository, see [Sample configuration](#sample-configuration).
+For a sample proxy service that illustrates how to work with CMIS repositories, see [Sample configuration](#sample-configuration).
 
 | Operation | Description |
 | ------------- |:-------------|
-| [getRepositories](#retrieving-repositories)    | Retrieves repositories details |
+| [getRepositories](#retrieving-available-repositories)    | Retrieves a list of available repositories |
 
 ### Operation details
 This section provides more details on the operation.
 
-#### Retrieving repositories
-The getRepositories operation retrieves repositories that are created in CMIS.
+#### Retrieving available repositories
+The getRepositories operation retrieves a list of all available CMIS repositories.
 
 **getRepositories**
 ```xml

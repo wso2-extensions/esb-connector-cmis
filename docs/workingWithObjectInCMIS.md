@@ -1,22 +1,22 @@
-# Working with Object in CMIS
+# Working with Objects in CMIS
 
-[[  Overview ]](#overview)  [[ Operation details ]](#operation-details)  [[  Sample configuration  ]](#sample-configuration)
+[[Overview]](#overview)  [[Operation details]](#operation-details)  [[Sample configuration]](#sample-configuration)
 
 ### Overview 
-The following operation allows you to work with the CMIS object. Click the operation name to see details on how to use it.
+The following operations allow you to work with CMIS objects. Click an operation name to see details on how to use it.
 
-For a sample proxy service that illustrates how to work with the CMIS object, see [Sample configuration](#sample-configuration).
+For a sample proxy service that illustrates how to work with CMIS objects, see [Sample configuration](#sample-configuration).
 
 | Operation | Description |
 | ------------- |:-------------|
-| [getAllowableActions](#retrieving-allowable-actions)    | Retrieves allowable actions details |
-| [getProperties](#retrieving-properties)    | Retrieves properties details |
+| [getAllowableActions](#retrieving-allowable-actions-for-an-object)    | Retrieves a list of allowable actions that can be performed on an object |
+| [getProperties](#retrieving-a-list-of-properties-of-an-object)    | Retrieves a list of properties of an object |
 
 ### Operation details
-This section provides more details on the operation.
+This section provides more information on each operation.
 
-#### Retrieving allowable actions
-The getAllowableActions operation retrieves allowable actions in CMIS.
+#### Retrieving allowable actions for an object
+The getAllowableActions operation retrieves a list of allowable actions that can be performed on an object.
 
 **getAllowableActions**
 ```xml
@@ -38,8 +38,8 @@ Following is a sample REST request that can be handled by the getAllowableAction
 
 [http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-2490007](http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-2490007)
 
-#### Retrieving properties
-The getProperties operation retrieves properties details, based on the criteria that you specify.
+#### Retrieving a list of properties of an object
+The getProperties operation retrieve a list of properties of an object based on the criteria that you specify.
 
 **getProperties**
 ```xml
@@ -50,8 +50,8 @@ The getProperties operation retrieves properties details, based on the criteria 
 ```
 
 **Properties**
-* cmisSuccinct: Whether the property presentation must be succinct or not set.
-* cmisFilter: Name of the filter is a list of property query names which allows the caller to specify a subset of properties for objects.
+* cmisSuccinct: Whether the property presentation should be briefly described in the list of properties returned.
+* cmisFilter: A list of property query names that specify a subset of properties that you want to retrieve.
 
 **Sample request**
 Following is a sample REST request that can be handled by the getProperties operation.
@@ -71,7 +71,7 @@ Following is a sample REST request that can be handled by the getProperties oper
 [http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-2570009](http://docs.oasis-open.org/cmis/CMIS/v1.1/errata01/os/CMIS-v1.1-errata01-os-complete.html#x1-2570009)
 
 ### Sample configuration
-Following is a sample proxy service that illustrates how to connect to CMIS with the init operation, and then use the getAllowableActions operation. The sample request for this proxy can be found in getAllowableActions sample request. You can use this sample as a template for using other operations in this category.
+Following is a sample proxy service that illustrates how to connect to CMIS with the init operation, and then use the getAllowableActions operation. The sample request for this proxy can be found in the getAllowableActions sample request. You can use this sample as a template for using other operations in this category.
 
 **Sample Proxy**
 ```xml

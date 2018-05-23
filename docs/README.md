@@ -1,6 +1,6 @@
 # CMIS Connector
 
-The CMIS [Connector](https://docs.wso2.com/display/EI611/Working+with+Connectors) allows you to access the [CMIS REST API](http://docs.alfresco.com/community/pra/1/concepts/cmis-1.1-intro.html) through the ESB Profile of WSO2 Enterprise Integrator (WSO2 EI). CMIS (Content Management Interoperability Services) is the OASIS specification for content management interoperability. It allows client and servers to talk together in HTTP (REST with JSON, AtomPub or SOAP) using an unified domain model.
+The CMIS(Content Management Interoperability Services) [Connector](https://docs.wso2.com/display/EI611/Working+with+Connectors) allows you to access the [CMIS REST API](http://docs.alfresco.com/community/pra/1/concepts/cmis-1.1-intro.html) through the ESB Profile of WSO2 Enterprise Integrator (WSO2 EI). CMIS is the OASIS (Organization for the Advancement of Structured Information Standards) specification that allows different content management systems to interoperate. It allows clients and servers to talk to each other via HTTP (REST with JSON, AtomPub or SOAP), using a unified domain model.
 
 ## Getting started
 To get started, go to [Configuring CMIS Operations](configuringCmisOperations.md). Once you have completed your configurations, you can perform various operations with the connector.

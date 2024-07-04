@@ -5,6 +5,16 @@
     "documentationUrl": "https://github.com/wso2-extensions/esb-connector-cmis/tree/org.wso2.carbon.connector.cmis-1.0.0/docs",
     "description": "The CMIS connector allows you to access the exposed API through the WSO2 EI. CMIS (Content Management Interoperability Services) is the OASIS specification for content management interoperability. It allows client and servers to talk together in HTTP (REST with JSON, AtomPub or SOAP) using a unified domain model. The connector uses the CMIS REST API reference.",
     "status": "Active",
-    "labels": [],
-    "releases": []
+    "labels": [
+        "connector"
+    ],
+    "releases": [
+        {
+            "tag_name": "v1.0.0",
+            "products": [
+                "\"EI 6.1.1\""
+            ],
+            "isHidden": false
+        }
+    ]
 }
